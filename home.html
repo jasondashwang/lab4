@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home</title>
+</head>
+<body>
+  <h1>Welcome back <span id="username"></span></h1>
+  <a href="/market">Go to Market</a>
+  <script defer>
+    const url = window.location.href;
+    const vars = {};
+    const hashes = url.split("?")[1];
+    const hash = hashes.split('&');
+
+    for (let i = 0; i < hash.length; i++) {
+      params = hash[i].split("=");
+      vars[params[0]] = params[1];
+    }
+
+    if (vars.username) {
+      document.getElementById('username').innerHTML = vars.username;
+    }
+  </script>
+</body>
+</html>
